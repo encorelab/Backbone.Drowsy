@@ -232,6 +232,9 @@
             default:
               return console.warn("Don't know how to handle broadcast with action", bcast.action);
           }
+        },
+        origin: function() {
+          return readVal(this, this.url) + "#" + this.faye.getClientId();
         }
       });
       obj.faye.bind('transport:up', (function(_this) {
